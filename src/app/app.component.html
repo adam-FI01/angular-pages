@@ -1,9 +1,9 @@
-<nav>
-  <ul class="pagination">
-    <li class="page-item"  [ngClass]="{disabled: currentPage === 0}">
+<nav >
+  <ul class="pagination" >
+    <li class="page-item" appClass [ngClass]="{disabled: currentPage === 0}">
       <a (click)="currentPage = currentPage - 1" class="page-link">Prev</a>
     </li>
-    <ng-container *ngFor="let image of images; let i = index;">
+    <ng-container *appTimes="images.length;let i = index">
       <li class="page-item" [ngClass]="{active: i === currentPage}"
     *ngIf="checkWindowIndex(i)">
       <a class="page-link" (click)="currentPage = i">
@@ -19,6 +19,14 @@
 </nav>
 
 <div>
-  <h4>{{images[currentPage].title}}</h4>
+  <h4 appClass [backgroundColor]=" 'red'">{{images[currentPage].title}}</h4>
   <img [src]="images[currentPage].url" alt="">
 </div>
+
+<ul>
+  <li  *appTimes="5">
+    Hi there
+  </li>
+</ul>
+
+
